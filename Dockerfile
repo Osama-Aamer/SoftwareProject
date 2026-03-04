@@ -1,7 +1,7 @@
 FROM eclipse-temurin:21-jdk-alpine
 WORKDIR /app
 
-# Change this line - the '.' at the end is the secret!
-COPY **/target/*.jar ./app.jar
+# Use the direct path to find the JAR and name it app.jar in the current folder
+COPY Software-Project1/Junit-testing-temperature/target/*.jar app.jar
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
