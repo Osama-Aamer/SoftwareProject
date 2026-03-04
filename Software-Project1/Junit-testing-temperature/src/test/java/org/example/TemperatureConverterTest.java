@@ -129,4 +129,36 @@ class TemperatureConverterTest {
         double backToFahrenheit = this.converter.celsiusToFahrenheit(celsius);
         Assertions.assertEquals(fahrenheit, backToFahrenheit, 0.001, "Round trip conversion should return the same value");
     }
+
+    @Test
+    void testKelvinToCelsius_AbsoluteZero() {
+        double result = this.converter.kelvinToCelsius(0.0);
+        Assertions.assertEquals(-273.15, result, 0.001, "0 K should convert to -273.15°C");
+    }
+
+    @Test
+    void testKelvinToCelsius_FreezingPoint() {
+        double result = this.converter.kelvinToCelsius(273.15);
+        Assertions.assertEquals(0.0, result, 0.001, "273.15 K should convert to 0°C");
+    }
+
+    @Test
+    void testKelvinToCelsius_BoilingPoint() {
+        double result = this.converter.kelvinToCelsius(373.15);
+        Assertions.assertEquals(100.0, result, 0.001, "373.15 K should convert to 100°C");
+    }
+
+    @Test
+    void testKelvinToCelsius_BodyTemperature() {
+        double result = this.converter.kelvinToCelsius(310.15);
+        Assertions.assertEquals(37.0, result, 0.001, "310.15 K should convert to 37°C");
+    }
+
+    @Test
+    void testKelvinToCelsius_RoomTemperature() {
+        double result = this.converter.kelvinToCelsius(300.0);
+        Assertions.assertEquals(26.85, result, 0.001, "300 K should convert to 26.85°C");
+    }
 }
+
+

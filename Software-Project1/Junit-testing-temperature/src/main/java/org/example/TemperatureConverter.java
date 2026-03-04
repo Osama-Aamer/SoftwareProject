@@ -13,4 +13,8 @@ public class TemperatureConverter {
     public boolean isExtremeTemperature(double celsius) {
         return celsius < (double)-40.0F || celsius > (double)50.0F;
     }
+
+    public double kelvinToCelsius(double kelvin) {
+        return kelvin - 273.15;
+    }
 }
