@@ -1,8 +1,9 @@
-FROM openjdk:21-jdk-slim
+# Use the stable, modern Temurin image
+FROM eclipse-temurin:21-jdk-alpine
+
 WORKDIR /app
 
-# This finds any JAR file anywhere in your project and
-# renames it to 'app.jar' inside the container
+# Your wildcard copy remains the same
 COPY **/target/*.jar app.jar
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
